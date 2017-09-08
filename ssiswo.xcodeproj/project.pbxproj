@@ -27,6 +27,18 @@
 		2DEA0B391F6138B90097D093 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA0B381F6138B90097D093 /* Global.m */; };
 		2DEA0B3C1F6145C00097D093 /* PlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA0B3B1F6145C00097D093 /* PlaceView.m */; };
 		2DEA0B3E1F6145CE0097D093 /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEA0B3D1F6145CE0097D093 /* PlaceView.xib */; };
+		2DFF9BDF1F618C9D00972D0E /* HHSpringController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BDE1F618C9D00972D0E /* HHSpringController.m */; };
+		2DFF9BE21F618CBB00972D0E /* HHSunController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BE11F618CBB00972D0E /* HHSunController.m */; };
+		2DFF9BE51F618CDE00972D0E /* HHAutumnController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BE41F618CDE00972D0E /* HHAutumnController.m */; };
+		2DFF9BEB1F618E0800972D0E /* HHWinterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BEA1F618E0800972D0E /* HHWinterController.m */; };
+		2DFF9BEE1F61961800972D0E /* HHRealtimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BED1F61961800972D0E /* HHRealtimeController.m */; };
+		2DFF9BF11F6196F100972D0E /* HHTaxiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BF01F6196F100972D0E /* HHTaxiController.m */; };
+		2DFF9BF51F619E9D00972D0E /* CommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BF41F619E9D00972D0E /* CommonUtility.m */; };
+		2DFF9BFF1F61A24F00972D0E /* LineDashPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BF81F61A24F00972D0E /* LineDashPolyline.m */; };
+		2DFF9C001F61A24F00972D0E /* MANaviAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BFA1F61A24F00972D0E /* MANaviAnnotation.m */; };
+		2DFF9C011F61A24F00972D0E /* MANaviPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BFC1F61A24F00972D0E /* MANaviPolyline.m */; };
+		2DFF9C021F61A24F00972D0E /* MANaviRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9BFE1F61A24F00972D0E /* MANaviRoute.m */; };
+		2DFF9C0B1F626C5500972D0E /* HHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF9C0A1F626C5500972D0E /* HHSearchBar.m */; };
 		54851023D50F2C2FAA08137C /* libPods-ssiswo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6BD0E0A145CB3914D83EF2 /* libPods-ssiswo.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +79,30 @@
 		2DEA0B3A1F6145C00097D093 /* PlaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceView.h; sourceTree = "<group>"; };
 		2DEA0B3B1F6145C00097D093 /* PlaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceView.m; sourceTree = "<group>"; };
 		2DEA0B3D1F6145CE0097D093 /* PlaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
+		2DFF9BDD1F618C9D00972D0E /* HHSpringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSpringController.h; sourceTree = "<group>"; };
+		2DFF9BDE1F618C9D00972D0E /* HHSpringController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSpringController.m; sourceTree = "<group>"; };
+		2DFF9BE01F618CBB00972D0E /* HHSunController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSunController.h; sourceTree = "<group>"; };
+		2DFF9BE11F618CBB00972D0E /* HHSunController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSunController.m; sourceTree = "<group>"; };
+		2DFF9BE31F618CDE00972D0E /* HHAutumnController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAutumnController.h; sourceTree = "<group>"; };
+		2DFF9BE41F618CDE00972D0E /* HHAutumnController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAutumnController.m; sourceTree = "<group>"; };
+		2DFF9BE91F618E0800972D0E /* HHWinterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHWinterController.h; sourceTree = "<group>"; };
+		2DFF9BEA1F618E0800972D0E /* HHWinterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHWinterController.m; sourceTree = "<group>"; };
+		2DFF9BEC1F61961800972D0E /* HHRealtimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHRealtimeController.h; sourceTree = "<group>"; };
+		2DFF9BED1F61961800972D0E /* HHRealtimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHRealtimeController.m; sourceTree = "<group>"; };
+		2DFF9BEF1F6196F100972D0E /* HHTaxiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTaxiController.h; sourceTree = "<group>"; };
+		2DFF9BF01F6196F100972D0E /* HHTaxiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTaxiController.m; sourceTree = "<group>"; };
+		2DFF9BF31F619E9D00972D0E /* CommonUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtility.h; sourceTree = "<group>"; };
+		2DFF9BF41F619E9D00972D0E /* CommonUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtility.m; sourceTree = "<group>"; };
+		2DFF9BF71F61A24F00972D0E /* LineDashPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDashPolyline.h; sourceTree = "<group>"; };
+		2DFF9BF81F61A24F00972D0E /* LineDashPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineDashPolyline.m; sourceTree = "<group>"; };
+		2DFF9BF91F61A24F00972D0E /* MANaviAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviAnnotation.h; sourceTree = "<group>"; };
+		2DFF9BFA1F61A24F00972D0E /* MANaviAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviAnnotation.m; sourceTree = "<group>"; };
+		2DFF9BFB1F61A24F00972D0E /* MANaviPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviPolyline.h; sourceTree = "<group>"; };
+		2DFF9BFC1F61A24F00972D0E /* MANaviPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviPolyline.m; sourceTree = "<group>"; };
+		2DFF9BFD1F61A24F00972D0E /* MANaviRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANaviRoute.h; sourceTree = "<group>"; };
+		2DFF9BFE1F61A24F00972D0E /* MANaviRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANaviRoute.m; sourceTree = "<group>"; };
+		2DFF9C091F626C5500972D0E /* HHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSearchBar.h; sourceTree = "<group>"; };
+		2DFF9C0A1F626C5500972D0E /* HHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSearchBar.m; sourceTree = "<group>"; };
 		4A6BD0E0A145CB3914D83EF2 /* libPods-ssiswo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ssiswo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB57A837ADBBB60B27F83F6D /* Pods-ssiswo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ssiswo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ssiswo/Pods-ssiswo.release.xcconfig"; sourceTree = "<group>"; };
 		F14187042EE1AE27FAD6347A /* Pods-ssiswo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ssiswo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ssiswo/Pods-ssiswo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +140,8 @@
 		2DA64CA81F42C1D1009DBF1F /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				2DFF9C081F626C4300972D0E /* Common */,
+				2DFF9BF21F619E7300972D0E /* Util */,
 				2DEA07F41F60E2730097D093 /* Base */,
 				2DEA07F51F60E2730097D093 /* Category */,
 				2DEA07F61F60E2730097D093 /* Class */,
@@ -179,6 +217,7 @@
 		2DEA07F61F60E2730097D093 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				2DFF9BDC1F618C7F00972D0E /* Other */,
 				2DEA0B191F60EF1A0097D093 /* Test */,
 				2DEA0B021F60E3640097D093 /* Main */,
 				2DEA0B031F60E3640097D093 /* Navi */,
@@ -212,6 +251,10 @@
 			children = (
 				2DEA0B051F60E37B0097D093 /* HHMainController.h */,
 				2DEA0B061F60E37B0097D093 /* HHMainController.m */,
+				2DFF9BEC1F61961800972D0E /* HHRealtimeController.h */,
+				2DFF9BED1F61961800972D0E /* HHRealtimeController.m */,
+				2DFF9BEF1F6196F100972D0E /* HHTaxiController.h */,
+				2DFF9BF01F6196F100972D0E /* HHTaxiController.m */,
 				2DEA0B3A1F6145C00097D093 /* PlaceView.h */,
 				2DEA0B3B1F6145C00097D093 /* PlaceView.m */,
 				2DEA0B3D1F6145CE0097D093 /* PlaceView.xib */,
@@ -263,6 +306,55 @@
 				2DEA0B341F6138890097D093 /* SpeechSynthesizer.m */,
 			);
 			path = SpeechSynthesizer;
+			sourceTree = "<group>";
+		};
+		2DFF9BDC1F618C7F00972D0E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF9BDD1F618C9D00972D0E /* HHSpringController.h */,
+				2DFF9BDE1F618C9D00972D0E /* HHSpringController.m */,
+				2DFF9BE01F618CBB00972D0E /* HHSunController.h */,
+				2DFF9BE11F618CBB00972D0E /* HHSunController.m */,
+				2DFF9BE31F618CDE00972D0E /* HHAutumnController.h */,
+				2DFF9BE41F618CDE00972D0E /* HHAutumnController.m */,
+				2DFF9BE91F618E0800972D0E /* HHWinterController.h */,
+				2DFF9BEA1F618E0800972D0E /* HHWinterController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		2DFF9BF21F619E7300972D0E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF9BF31F619E9D00972D0E /* CommonUtility.h */,
+				2DFF9BF41F619E9D00972D0E /* CommonUtility.m */,
+				2DFF9BF61F61A24F00972D0E /* model */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2DFF9BF61F61A24F00972D0E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF9BF71F61A24F00972D0E /* LineDashPolyline.h */,
+				2DFF9BF81F61A24F00972D0E /* LineDashPolyline.m */,
+				2DFF9BF91F61A24F00972D0E /* MANaviAnnotation.h */,
+				2DFF9BFA1F61A24F00972D0E /* MANaviAnnotation.m */,
+				2DFF9BFB1F61A24F00972D0E /* MANaviPolyline.h */,
+				2DFF9BFC1F61A24F00972D0E /* MANaviPolyline.m */,
+				2DFF9BFD1F61A24F00972D0E /* MANaviRoute.h */,
+				2DFF9BFE1F61A24F00972D0E /* MANaviRoute.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2DFF9C081F626C4300972D0E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF9C091F626C5500972D0E /* HHSearchBar.h */,
+				2DFF9C0A1F626C5500972D0E /* HHSearchBar.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,19 +484,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DEA0B3C1F6145C00097D093 /* PlaceView.m in Sources */,
+				2DFF9C0B1F626C5500972D0E /* HHSearchBar.m in Sources */,
 				2DEA0AFE1F60E2890097D093 /* HHBaseController.m in Sources */,
 				2DEA0B171F60E3CA0097D093 /* HHSearchController.m in Sources */,
+				2DFF9C011F61A24F00972D0E /* MANaviPolyline.m in Sources */,
 				2DEA0B2E1F61377E0097D093 /* MapManager.m in Sources */,
+				2DFF9BEB1F618E0800972D0E /* HHWinterController.m in Sources */,
 				2DEA0B391F6138B90097D093 /* Global.m in Sources */,
+				2DFF9BF51F619E9D00972D0E /* CommonUtility.m in Sources */,
 				2DEA0B0D1F60E38D0097D093 /* HHNaviController.m in Sources */,
+				2DFF9BE21F618CBB00972D0E /* HHSunController.m in Sources */,
 				2DD2AAE91F42B48100EA3894 /* ViewController.m in Sources */,
+				2DFF9C021F61A24F00972D0E /* MANaviRoute.m in Sources */,
+				2DFF9BEE1F61961800972D0E /* HHRealtimeController.m in Sources */,
 				2DEA0B351F6138890097D093 /* MoreMenuView.m in Sources */,
 				2DEA0B2B1F6127470097D093 /* HHAMapHelper.m in Sources */,
+				2DFF9C001F61A24F00972D0E /* MANaviAnnotation.m in Sources */,
 				2DD2AAE61F42B48100EA3894 /* AppDelegate.m in Sources */,
+				2DFF9BDF1F618C9D00972D0E /* HHSpringController.m in Sources */,
+				2DFF9BFF1F61A24F00972D0E /* LineDashPolyline.m in Sources */,
+				2DFF9BE51F618CDE00972D0E /* HHAutumnController.m in Sources */,
 				2DEA0B081F60E37B0097D093 /* HHMainController.m in Sources */,
 				2DEA0B1C1F60EF280097D093 /* HHTestController.m in Sources */,
 				2DEA0B361F6138890097D093 /* SpeechSynthesizer.m in Sources */,
 				2DD2AAE31F42B48100EA3894 /* main.m in Sources */,
+				2DFF9BF11F6196F100972D0E /* HHTaxiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

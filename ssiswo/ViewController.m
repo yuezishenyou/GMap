@@ -38,9 +38,17 @@
 
 - (void)initData
 {
-    self.dataArray = @[@"主页",@"导航",@"检索",@"Test"];
+    self.dataArray = @[@"主页",@"导航",@"检索",@"Test",@"春",@"夏",@"秋",@"冬"];
     
-    self.vcArray = @[@"HHMainController",@"HHNaviController",@"HHSearchController",@"HHTestController"];
+    self.vcArray = @[@"HHMainController",
+                     @"HHNaviController",
+                     @"HHSearchController",
+                     @"HHTestController",
+                     @"HHSpringController",
+                     @"HHSunController",
+                     @"HHAutumnController",
+                     @"HHWinterController"
+                     ];
 }
 
 - (void)initSubViews

@@ -12,9 +12,11 @@
 
 @interface HHAMapHelper ()<MAMapViewDelegate,AMapSearchDelegate,AMapNaviWalkManagerDelegate,AMapNaviWalkViewDelegate,AMapNaviDriveViewDelegate,AMapNaviDriveManagerDelegate>
 
-@property (nonatomic,strong)CLLocation *currentLocation;
 
-@property (nonatomic,strong)UIView *supView;
+@property (nonatomic,strong)AMapReGeocodeSearchRequest *reGeocodeSearchRequest;//逆地理请求
+
+@property (nonatomic,strong)AMapDrivingRouteSearchRequest *drivingRouteSearchRequest;//驾车路径规划查询
+
 
 @end
 
@@ -32,12 +34,25 @@
     return _manager;
 }
 
+
 - (void)locateMapViewInView:(UIView *)mapSuerView frame:(CGRect)frame completion:(HYBUserLocationCompletion)completion
 {
     _locationCompletion = [completion copy];
     
     [self initSearch];
     
+    [self initMapViewWithSupView:mapSuerView frame:frame];
+    
+    self.supView = mapSuerView;
+    
+    if (_locationCompletion) {
+        _locationCompletion(YES);
+    }
+    
+}
+
+- (BOOL)initMapViewWithSupView:(UIView *)mapSuerView frame:(CGRect)frame
+{
     
     if (_mapView) {
         [_mapView removeFromSuperview];
@@ -60,12 +75,7 @@
     _mapView.desiredAccuracy = kCLLocationAccuracyBest;
     _mapView.distanceFilter = 5.0f;
     
-    self.supView = mapSuerView;
-    
-    if (_locationCompletion) {
-        _locationCompletion(YES);
-    }
-    
+    return YES;
 }
 
 - (BOOL)initSearch
@@ -122,6 +132,7 @@
     
     _search.delegate = nil;
     _search = nil;
+    
 }
 
 - (void)dealloc
@@ -132,18 +143,32 @@
 
 
 
-#pragma mark --viewForAnnotation
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - 大头针生成
+// ----------------------------------------------------------------------------------------
+
+#pragma mark -----------大头针生成-------------
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
+    
     if ([annotation isKindOfClass:[MAUserLocation class]])
     {//定位点
-        NSLog(@"---------插针1-------------");
-        
         static NSString *transparentuserLocationStyleReuseIndetifier = @"asuserLocationStyleReuseIndetifier1";
-        
         MAAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:transparentuserLocationStyleReuseIndetifier];
-        
         if (annotationView == nil){
             annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation
                                                              reuseIdentifier:transparentuserLocationStyleReuseIndetifier];
@@ -152,39 +177,37 @@
             annotationView.image = userLocation;
             annotationView.zIndex = 1;
         }
+        
         return annotationView;
     }
-
-    
-    if ([annotation isKindOfClass:[MAPointAnnotation class]])
-    {
-        NSLog(@"---------插针2-------------");
-        
-        static NSString *pointReuseIndetifier = @"pointReuseIndetifier";
-        MAPinAnnotationView *annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndetifier];
-        if (annotationView == nil)
-        {
-            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndetifier];
-        }
-        
-        annotationView.canShowCallout               = YES;
-        annotationView.animatesDrop                 = YES;
-        annotationView.draggable                    = YES;
-        annotationView.rightCalloutAccessoryView    = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        annotationView.pinColor                     = MAPinAnnotationColorRed;
-        return annotationView;
-    }
-
-    
-    
     return nil;
 }
 
-#pragma mark didUpdateUserLocation
-// 定位用户位置失败
-- (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - 用户定位
+// ----------------------------------------------------------------------------------------
+
+#pragma mark ---------用户定位信息---------
+
+- (void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error
+{
     NSLog(@"------定位用户位置失败------");
 }
+
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if(updatingLocation)
@@ -207,71 +230,180 @@
     }
 }
 
-#pragma mark 搜索请求发起后的回调,用于标记自己当前的位置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - 查询、请求
+// ----------------------------------------------------------------------------------------
+
+#pragma mark ---------查询、请求----------------
+- (void)searchReGeocodeWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    if (self.reGeocodeSearchRequest == nil)
+    {
+        self.reGeocodeSearchRequest = [[AMapReGeocodeSearchRequest alloc] init];
+    }
+    self.reGeocodeSearchRequest.location = [AMapGeoPoint locationWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    self.reGeocodeSearchRequest.requireExtension = YES;
+    self.reGeocodeSearchRequest.radius = 10000;
+    
+    [self.search AMapReGoecodeSearch:self.reGeocodeSearchRequest];//逆地理编码查询 onReGeocodeSearchDone
+}
+
+
+- (void)searchRoutePlanningDriveWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate destinationCoordinate:(CLLocationCoordinate2D)destinationCoordinate
+{
+    
+    self.startAnnotation.coordinate = startCoordinate;
+    self.destinationAnnotation.coordinate = destinationCoordinate;
+    
+    if (self.drivingRouteSearchRequest == nil) {
+        self.drivingRouteSearchRequest = [[AMapDrivingRouteSearchRequest alloc] init];
+    }
+    
+    self.drivingRouteSearchRequest.requireExtension = YES;
+    self.drivingRouteSearchRequest.strategy = 17;
+    /* 出发点. */
+    self.drivingRouteSearchRequest.origin = [AMapGeoPoint locationWithLatitude:self.startAnnotation.coordinate.latitude
+                                                                     longitude:self.startAnnotation.coordinate.longitude];
+    /* 目的地. */
+    self.drivingRouteSearchRequest.destination = [AMapGeoPoint locationWithLatitude:self.destinationAnnotation.coordinate.latitude
+                                                                          longitude:self.destinationAnnotation.coordinate.longitude];
+    
+    [self.search AMapDrivingRouteSearch:self.drivingRouteSearchRequest];//驾车路径规划查询 onRouteSearchDone
+    
+}
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - 查询、请求 回调
+// ----------------------------------------------------------------------------------------
+
+#pragma mark ----------查询、请求 回调----------------
 -(void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error
 {
-    NSLog(@"request: %@------error:  %@",request,error);
+    NSLog(@"-------request:%@------error:%@-------",request,error);
 }
 
+//逆地理编码回调
 -(void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
-    //我们把编码后的地理位置，显示到 大头针的标题和子标题上
-    NSString *title = response.regeocode.addressComponent.city;
-    NSLog(@"----%@-----",title);
-    
-//    if (title.length == 0)
-//    {
-//        title = response.regeocode.addressComponent.province;
-//    }
-//    
-//    if (request.location.latitude == _currentLocation.coordinate.latitude&&request.location.longitude == _currentLocation.coordinate.longitude) {
-//        _mapView.userLocation.title = title;
-//        _mapView.userLocation.subtitle = response.regeocode.formattedAddress;
-//    }
-//    else
-//    {
-//        _destinatePoint.title = title;
-//        _destinatePoint.subtitle = response.regeocode.formattedAddress;
-//    }
+    NSLog(@"-----逆地理编码回调-----");
+}
+
+//路线回调
+- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
+{
+    NSLog(@"-----路线规划回调-----");
 }
 
 
 
 
-#pragma mark --地图移动结束
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - 地图接口调用
+// ----------------------------------------------------------------------------------------
+
+#pragma mark -----------地图接口调用---------------
 - (void)mapView:(MAMapView *)mapView mapDidMoveByUser:(BOOL)wasUserAction
 {
-    //self.mapView convertPoint:<#(CGPoint)#> toCoordinateFromView:<#(UIView *)#>
     NSLog(@"------地图移动结束------");
+    
+//    CGPoint point = CGPointMake(kScreenW / 2, kScreenH / 2);
+//    
+//    CLLocationCoordinate2D randomCoordinate =  [self.mapView convertPoint:point toCoordinateFromView:self.supView];
+//    
+//    [self searchReGeocodeWithCoordinate:randomCoordinate];
+    
+   
 }
-
 
 - (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     NSLog(@"------地图区域改变------");
+    [self.mapView removeFromSuperview];
+    [self.supView addSubview:self.mapView];
+    [self.supView insertSubview:self.mapView atIndex:0];
     
-    CGPoint point = CGPointMake(kScreenW / 2, kScreenH / 2);
-    
-    CLLocationCoordinate2D randomCoordinate =  [self.mapView convertPoint:point toCoordinateFromView:self.supView];
-    
-    [self searchReGeocodeWithCoordinate:randomCoordinate];
 }
 
 
 
 
 
-#pragma mark ----------------- Util ------------------------
-#pragma mark -
-- (void)searchReGeocodeWithCoordinate:(CLLocationCoordinate2D)coordinate
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------
+// MARK: - Util
+// ----------------------------------------------------------------------------------------
+
+- (CGFloat)mapDistanceBetweenCoordinate:(CLLocationCoordinate2D )coordinateA AndCoordinate:(CLLocationCoordinate2D)coordinateB
 {
-    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
-    regeo.location = [AMapGeoPoint locationWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    regeo.requireExtension = YES;
-    regeo.radius = 10000;
+    MAMapPoint p1 = MAMapPointForCoordinate(coordinateA);
+    MAMapPoint p2 = MAMapPointForCoordinate(coordinateB);
+    CLLocationDistance distance =  MAMetersBetweenMapPoints(p1, p2);
     
-    [self.search AMapReGoecodeSearch:regeo];//逆地理编码查询 onReGeocodeSearchDone
+    return distance;//两点距离
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
