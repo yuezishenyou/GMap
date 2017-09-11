@@ -9,7 +9,9 @@
 #import "HHSunController.h"
 #import "MapManager.h"
 
-@interface HHSunController ()
+@interface HHSunController ()<MAMapViewDelegate>
+
+@property (nonatomic,strong)MAMapView *mapView;
 
 @end
 
@@ -17,16 +19,19 @@
 
 - (void)dealloc
 {
-    NSLog(@"----spring释放------");
+    NSLog(@"----sun释放------");
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     
     self.title = @"夏";
     
-    [self initSubViews];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"夏" style:UIBarButtonItemStyleDone target:self action:@selector(pushSun)];
+    
+    [self setupMap];
     
 }
 
@@ -37,22 +42,40 @@
     [MapManager sharedManager].controller = nil;
 }
 
-- (void)initSubViews
+- (void)setupMap
 {
     MapManager *manager = [MapManager sharedManager];
     
-    manager.controller = self;
-    
     [manager initMapView];
     
+    self.mapView = manager.mapView;
+    
+    [self.view addSubview:self.mapView];
+    
+    [self.view sendSubviewToBack:self.mapView];
+    
+    self.mapView.delegate = self;
+    
 }
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+
+
+
+
+
+
+#pragma mark --UI
+- (void)pushSun
+{
+    HHSunController *vc = [[HHSunController alloc]init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 
 

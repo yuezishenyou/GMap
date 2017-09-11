@@ -17,6 +17,11 @@
 #import <AMapNaviKit/AMapNaviKit.h>
 //gps纠偏类
 #import <JZLocationConverter.h>
+
+
+typedef void(^HHCompletion)(MAMapView *mapView);
+
+
 @interface MapManager : NSObject
 @property (nonatomic,strong)UIViewController *controller;
 //地图对象
@@ -45,16 +50,35 @@
 @property (nonatomic,strong)NSString *destinationImgName;
 //定位大头针图片名
 @property (nonatomic,strong)NSString *locationPointImgName;
+
+@property (nonatomic,copy) HHCompletion comlpetion;
+
+
+
 //初始化单例管理员对象
 +(instancetype)sharedManager;
 //初始化地图
 -(void)initMapView;
-//根据关键字搜索附近
--(void)searchAroundWithKeyWords:(NSString *)keywords;
-//添加一个大头针
--(void)addAnomationWithCoor:(CLLocationCoordinate2D)coor;
-//轨迹回放线
--(void)drawLineWithArray:(NSArray *)array;
-//轨迹回放点
--(void)addAnomationWithArray:(NSArray *)array;
+
+
+
+
+
+
+
+
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+

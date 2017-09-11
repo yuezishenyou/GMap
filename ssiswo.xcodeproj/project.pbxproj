@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA78D301F661DC7006172B3 /* HHEastController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78D2F1F661DC7006172B3 /* HHEastController.m */; };
+		2DA78D331F661DE9006172B3 /* HHSouthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78D321F661DE9006172B3 /* HHSouthController.m */; };
+		2DA78D361F661E0D006172B3 /* HHWestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78D351F661E0D006172B3 /* HHWestController.m */; };
+		2DA78D391F661E46006172B3 /* HHNorthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78D381F661E46006172B3 /* HHNorthController.m */; };
 		2DD2AAE31F42B48100EA3894 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2AAE21F42B48100EA3894 /* main.m */; };
 		2DD2AAE61F42B48100EA3894 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2AAE51F42B48100EA3894 /* AppDelegate.m */; };
 		2DD2AAE91F42B48100EA3894 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2AAE81F42B48100EA3894 /* ViewController.m */; };
@@ -43,6 +47,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DA78D2E1F661DC7006172B3 /* HHEastController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHEastController.h; sourceTree = "<group>"; };
+		2DA78D2F1F661DC7006172B3 /* HHEastController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHEastController.m; sourceTree = "<group>"; };
+		2DA78D311F661DE9006172B3 /* HHSouthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHSouthController.h; sourceTree = "<group>"; };
+		2DA78D321F661DE9006172B3 /* HHSouthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHSouthController.m; sourceTree = "<group>"; };
+		2DA78D341F661E0D006172B3 /* HHWestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHWestController.h; sourceTree = "<group>"; };
+		2DA78D351F661E0D006172B3 /* HHWestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHWestController.m; sourceTree = "<group>"; };
+		2DA78D371F661E46006172B3 /* HHNorthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNorthController.h; sourceTree = "<group>"; };
+		2DA78D381F661E46006172B3 /* HHNorthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNorthController.m; sourceTree = "<group>"; };
 		2DD2AADE1F42B48100EA3894 /* ssiswo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ssiswo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD2AAE21F42B48100EA3894 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DD2AAE41F42B48100EA3894 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -319,6 +331,14 @@
 				2DFF9BE41F618CDE00972D0E /* HHAutumnController.m */,
 				2DFF9BE91F618E0800972D0E /* HHWinterController.h */,
 				2DFF9BEA1F618E0800972D0E /* HHWinterController.m */,
+				2DA78D2E1F661DC7006172B3 /* HHEastController.h */,
+				2DA78D2F1F661DC7006172B3 /* HHEastController.m */,
+				2DA78D341F661E0D006172B3 /* HHWestController.h */,
+				2DA78D351F661E0D006172B3 /* HHWestController.m */,
+				2DA78D311F661DE9006172B3 /* HHSouthController.h */,
+				2DA78D321F661DE9006172B3 /* HHSouthController.m */,
+				2DA78D371F661E46006172B3 /* HHNorthController.h */,
+				2DA78D381F661E46006172B3 /* HHNorthController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -486,15 +506,19 @@
 				2DEA0B3C1F6145C00097D093 /* PlaceView.m in Sources */,
 				2DFF9C0B1F626C5500972D0E /* HHSearchBar.m in Sources */,
 				2DEA0AFE1F60E2890097D093 /* HHBaseController.m in Sources */,
+				2DA78D361F661E0D006172B3 /* HHWestController.m in Sources */,
 				2DEA0B171F60E3CA0097D093 /* HHSearchController.m in Sources */,
 				2DFF9C011F61A24F00972D0E /* MANaviPolyline.m in Sources */,
 				2DEA0B2E1F61377E0097D093 /* MapManager.m in Sources */,
 				2DFF9BEB1F618E0800972D0E /* HHWinterController.m in Sources */,
 				2DEA0B391F6138B90097D093 /* Global.m in Sources */,
 				2DFF9BF51F619E9D00972D0E /* CommonUtility.m in Sources */,
+				2DA78D331F661DE9006172B3 /* HHSouthController.m in Sources */,
 				2DEA0B0D1F60E38D0097D093 /* HHNaviController.m in Sources */,
 				2DFF9BE21F618CBB00972D0E /* HHSunController.m in Sources */,
 				2DD2AAE91F42B48100EA3894 /* ViewController.m in Sources */,
+				2DA78D301F661DC7006172B3 /* HHEastController.m in Sources */,
+				2DA78D391F661E46006172B3 /* HHNorthController.m in Sources */,
 				2DFF9C021F61A24F00972D0E /* MANaviRoute.m in Sources */,
 				2DFF9BEE1F61961800972D0E /* HHRealtimeController.m in Sources */,
 				2DEA0B351F6138890097D093 /* MoreMenuView.m in Sources */,

@@ -61,7 +61,7 @@
     //
     self.searchTextField = [[UITextField alloc]init];
     
-    self.searchTextField.frame = CGRectMake(CGRectGetMaxX(imageV.frame)+ 3, 0, width - 20 - 20 - 10 -10- 5 , 30);
+    self.searchTextField.frame = CGRectMake(CGRectGetMaxX(imageV.frame)+ 3, (height - 30)/2, width - 20 - 20 - 10 -10- 5 , 30);
     
     //self.searchTextField.backgroundColor = [UIColor lightGrayColor];
     

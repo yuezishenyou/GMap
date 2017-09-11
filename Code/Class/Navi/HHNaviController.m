@@ -14,11 +14,11 @@
 
 @implementation HHNaviController
 
-- (void)loadView
-{
-    [super loadView];
-    self.view.frame = [[UIScreen mainScreen]bounds];
-}
+//- (void)loadView
+//{
+//    [super loadView];
+//    self.view.frame = [[UIScreen mainScreen]bounds];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,10 +30,20 @@
     [self locateMapViewInView:self.view frame:rect completion:nil];
     
     
+    NSLog(@"---frame:%@----",NSStringFromCGRect(self.view.frame));
+    
+    
+
     
 }
 
-
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+        NSLog(@"---viewDidLayoutSubviewsframe:%@----",NSStringFromCGRect(self.view.frame));
+    
+}
 
 
 

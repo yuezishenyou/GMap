@@ -113,10 +113,10 @@ typedef void(^HYBUserLocationCompletion)(BOOL finish);
 - (void)searchReGeocodeWithCoordinate:(CLLocationCoordinate2D)coordinate;
 
 
-- (void)searchRoutePlanningDriveWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate
-                              destinationCoordinate:(CLLocationCoordinate2D)destinationCoordinate;
+- (void)searchDriveRouteWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate
+                      destinationCoordinate:(CLLocationCoordinate2D)destinationCoordinate;
 
-
+- (void)searchPOIKeywords:(NSString *)keywords;
 
 
 
@@ -130,12 +130,11 @@ typedef void(^HYBUserLocationCompletion)(BOOL finish);
 
 -(void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error;
 
-
 -(void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response;
-
 
 - (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response;
 
+- (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response;
 
 
 

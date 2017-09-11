@@ -38,7 +38,7 @@
 
 - (void)initData
 {
-    self.dataArray = @[@"主页",@"导航",@"检索",@"Test",@"春",@"夏",@"秋",@"冬"];
+    self.dataArray = @[@"主页",@"导航",@"检索",@"Test",@"春",@"夏",@"秋",@"冬",@"东",@"西",@"南",@"北"];
     
     self.vcArray = @[@"HHMainController",
                      @"HHNaviController",
@@ -47,7 +47,11 @@
                      @"HHSpringController",
                      @"HHSunController",
                      @"HHAutumnController",
-                     @"HHWinterController"
+                     @"HHWinterController",
+                     @"HHEastController",
+                     @"HHWestController",
+                     @"HHSouthController",
+                     @"HHNorthController"
                      ];
 }
 

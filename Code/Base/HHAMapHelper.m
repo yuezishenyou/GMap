@@ -17,6 +17,8 @@
 
 @property (nonatomic,strong)AMapDrivingRouteSearchRequest *drivingRouteSearchRequest;//驾车路径规划查询
 
+@property (nonatomic,strong)AMapPOIKeywordsSearchRequest *poiKeywordsSearchRequest;//关键词搜索
+
 
 @end
 
@@ -64,7 +66,7 @@
     
     _mapView = [[MAMapView alloc]initWithFrame:frame];
     [mapSuerView addSubview:_mapView];
-    [_mapView sendSubviewToBack:mapSuerView];
+    [mapSuerView sendSubviewToBack:_mapView];
     _mapView.delegate = self;
     _mapView.showsScale = NO;
     _mapView.showsCompass = NO;
@@ -265,7 +267,7 @@
 }
 
 
-- (void)searchRoutePlanningDriveWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate destinationCoordinate:(CLLocationCoordinate2D)destinationCoordinate
+- (void)searchDriveRouteWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate destinationCoordinate:(CLLocationCoordinate2D)destinationCoordinate
 {
     
     self.startAnnotation.coordinate = startCoordinate;
@@ -288,7 +290,30 @@
     
 }
 
-
+- (void)searchPOIKeywords:(NSString *)keywords
+{
+    
+    if (keywords.length == 0) {
+        return ;
+    }
+    
+    if (self.poiKeywordsSearchRequest == nil)
+    {
+        self.poiKeywordsSearchRequest = [[AMapPOIKeywordsSearchRequest alloc] init];
+    }
+    
+    self.poiKeywordsSearchRequest.keywords = keywords;
+    //    request.keywords            = @"北京大学";
+    //    request.city                = @"北京";
+    //    request.types               = @"高等院校";
+    //    request.requireExtension    = YES;//是否返回扩展信息
+    //    /*  搜索SDK 3.2.0 中新增加的功能，只搜索本城市的POI。*/
+    //    request.cityLimit           = YES;//只搜索
+    self.poiKeywordsSearchRequest.requireSubPOIs      = YES;
+    
+    [self.search AMapPOIKeywordsSearch:self.poiKeywordsSearchRequest];
+    
+}
 
 
 
@@ -310,14 +335,27 @@
 -(void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
     NSLog(@"-----逆地理编码回调-----");
+    if (response.regeocode == nil){
+        return;
+    }
 }
 
 //路线回调
 - (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response
 {
     NSLog(@"-----路线规划回调-----");
+    if (response.route == nil) {
+        return ;
+    }
 }
 
+- (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
+{
+    NSLog(@"-----POI回调-----");
+    if (response.pois.count == 0){
+        return ;
+    }
+}
 
 
 

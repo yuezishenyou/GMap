@@ -7,6 +7,8 @@
 //
 
 #import "HHAutumnController.h"
+#import "MapManager.h"
+
 
 @interface HHAutumnController ()
 
@@ -14,24 +16,78 @@
 
 @implementation HHAutumnController
 
+- (void)dealloc
+{
+    NSLog(@"----Autumn释放------");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"秋";
+    
+    [self initSubViews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MapManager sharedManager].controller = nil;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)initSubViews
+{
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc]initWithTitle:@"秋"
+                                    style:UIBarButtonItemStyleDone
+                                   target:self
+                                   action:@selector(qiuAction)];
+    
+    
+    
+    MapManager *manager = [MapManager sharedManager];
+    
+    manager.controller = self;
+    
+    [manager initMapView];
+    
 }
-*/
+
+- (void)qiuAction
+{
+    
+    HHAutumnController *vc = [[HHAutumnController alloc]init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,24 +34,22 @@ static const NSInteger RoutePlanningPaddingEdge                    = 20;
 
 @implementation HHTaxiController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.title = @"乘车";
-    
-    //(31.196453,121.289599)
-    //(31.231134,121.365845)
+
     
     self.startCoordinate        = CLLocationCoordinate2DMake(31.196453, 121.289599);
     self.destinationCoordinate  = CLLocationCoordinate2DMake(31.231134, 121.365845);
     
     [self locateMapViewInView:self.view frame:self.view.frame completion:nil];
     
-    
     [self addDefaultAnnotations];
     
-    [self searchRoutePlanningDriveWithStartCoordinate:self.startCoordinate
-                                destinationCoordinate:self.destinationCoordinate];
+    [self searchDriveRouteWithStartCoordinate:self.startCoordinate
+                        destinationCoordinate:self.destinationCoordinate];
     
     [self initSubViews];
     
